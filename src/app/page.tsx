@@ -74,7 +74,7 @@ function Manifesto() {
             initial={{ opacity: 0, y: reduce ? 0 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-9"
           >
             <p className="font-serif text-2xl md:text-3xl lg:text-[2.4rem] leading-[1.25] tracking-tight text-primary text-balance">
@@ -156,7 +156,7 @@ function Engagement() {
             initial={{ opacity: 0, y: reduce ? 0 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-7"
           >
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
@@ -248,7 +248,7 @@ function Committee() {
             initial={{ opacity: 0, x: reduce ? 0 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-5"
           >
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
@@ -287,7 +287,7 @@ function Committee() {
               initial={{ opacity: 0, y: reduce ? 0 : 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] as const }}
               className="relative aspect-[5/4] overflow-hidden rounded-sm bg-secondary/40"
             >
               <Image
@@ -414,7 +414,7 @@ function Voices() {
               transition={{
                 duration: reduce ? 0 : 0.6,
                 delay: reduce ? 0 : i * 0.12,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               className="flex flex-col rounded-sm border border-primary/15 bg-card p-7 md:p-8"
             >
@@ -491,7 +491,7 @@ function Founding() {
               initial={{ opacity: 0, y: reduce ? 0 : 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] as const }}
               className="lg:sticky lg:top-28 rounded-sm border border-primary/15 bg-secondary/40 p-7 md:p-8"
             >
               <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
@@ -528,7 +528,7 @@ function Founding() {
                   transition={{
                     duration: reduce ? 0 : 0.6,
                     delay: reduce ? 0 : i * 0.1,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: [0.22, 1, 0.36, 1] as const,
                   }}
                   className="relative pl-8 pb-10 last:pb-0"
                 >
@@ -573,7 +573,7 @@ function Connect() {
             initial={{ opacity: 0, y: reduce ? 0 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduce ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             className="lg:col-span-5"
           >
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">

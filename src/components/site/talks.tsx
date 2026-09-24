@@ -94,7 +94,7 @@ export function Talks() {
               transition={{
                 duration: reduce ? 0 : 0.6,
                 delay: reduce ? 0 : i * 0.12,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               className="flex flex-col"
             >

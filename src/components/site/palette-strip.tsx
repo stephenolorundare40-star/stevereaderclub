@@ -76,7 +76,7 @@ export function PaletteStrip() {
                 transition={{
                   duration: reduce ? 0 : 0.5,
                   delay: reduce ? 0 : i * 0.05,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 onMouseEnter={() => setHoverIndex(i)}
                 onMouseLeave={() => setHoverIndex(null)}

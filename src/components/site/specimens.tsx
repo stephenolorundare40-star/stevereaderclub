@@ -49,7 +49,7 @@ const SPECIMENS: Specimen[] = [
 
 export function Specimens() {
   const reduce = useReducedMotion()
-  const [scale, setScale] = useState<number>(
+  const [scale, setScale] = useState<number[]>(
     () => SPECIMENS.map(() => 1)
   )
 
@@ -112,7 +112,7 @@ export function Specimens() {
                 transition={{
                   duration: reduce ? 0 : 0.6,
                   delay: reduce ? 0 : i * 0.15,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 whileDrag={{
                   scale: (scale[i] ?? 1) * 1.02,

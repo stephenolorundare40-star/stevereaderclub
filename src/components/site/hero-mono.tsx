@@ -33,7 +33,7 @@ export function HeroMono() {
     show: {
       y: 0,
       opacity: 1,
-      transition: { duration: reduce ? 0 : 0.95, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: reduce ? 0 : 0.95, ease: [0.22, 1, 0.36, 1] as const },
     },
   }
 
@@ -41,7 +41,7 @@ export function HeroMono() {
     hidden: { width: reduce ? "100%" : 0 },
     show: {
       width: "100%",
-      transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.4 },
+      transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] as const, delay: 0.4 },
     },
   }
 

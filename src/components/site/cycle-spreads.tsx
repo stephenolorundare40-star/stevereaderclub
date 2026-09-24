@@ -148,7 +148,7 @@ export function CycleSpreads() {
                 }}
                 transition={{
                   duration: reduce ? 0 : 0.7,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 className="grid lg:grid-cols-12 gap-8 lg:gap-12"
               >
