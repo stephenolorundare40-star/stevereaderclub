@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "STEVEREADERCLUB | A Private Literary Society & Managed Reader Experience",
   description:
-    "STEVEREADERCLUB is an independent private literary society led by Prof Stephen. We connect brilliant independent authors with an elite global reading community for a structured, year-long journey of deep literary engagement.",
+    "STEVEREADERCLUB is an independent private literary society led by Prof Stephen. We connect brilliant independent authors with an elite global reading community for a structured, year-long journey of deep literary engagement. Auto-deploy verified.",
   keywords: [
     "STEVEREADERCLUB",
     "Steve Reader Club",
