@@ -1,21 +1,18 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
-import { db } from "@/lib/db"
 
 /**
  * POST /api/contact
  * Body: { name: string, email: string, bookTitle?: string, message: string }
  *
- * Behaviour:
- *  1. Persists the submission to the Submission table (so a message is never
- *     lost, even if SMTP delivery fails).
- *  2. Attempts to deliver it to profstephenbookclub@gmail.com via Gmail SMTP.
- *     Requires the following environment variables:
- *       GMAIL_USER          — the Gmail address that sends the mail
- *       GMAIL_APP_PASSWORD  — a Google App Password (NOT the account password)
- *     If those are not set, the route still returns 200 (with delivered=failed)
- *     and the message is stored in the database for later review.
- *  3. Returns a JSON envelope with the submission id and delivery status.
+ * Forwards the submission to profstephenbookclub@gmail.com via Gmail SMTP.
+ *
+ * Required environment variables (set as Cloudflare secrets):
+ *   GMAIL_USER          — the Gmail address that sends the mail
+ *   GMAIL_APP_PASSWORD  — a Google App Password (NOT the account password)
+ *
+ * If those are not set, the route returns 503 and a clear error message
+ * so the submitter knows to retry or write directly.
  */
 
 const RECIPIENT = "profstephenbookclub@gmail.com"
@@ -49,7 +46,6 @@ export async function POST(req: Request) {
     )
   }
 
-  // Basic email format sanity check
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   if (!emailOk) {
     return NextResponse.json(
@@ -58,54 +54,18 @@ export async function POST(req: Request) {
     )
   }
 
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null
-
-  // 1) Persist to the database first
-  let submission: { id: string } | null = null
-  try {
-    submission = await db.submission.create({
-      data: {
-        name,
-        email,
-        bookTitle: bookTitle || null,
-        message,
-        ip,
-        delivered: "pending",
-      },
-      select: { id: true },
-    })
-  } catch (e) {
-    console.error("[contact] DB insert failed:", e)
-  }
-
-  // 2) Try SMTP delivery
   const gmailUser = process.env.GMAIL_USER
   const gmailPass = process.env.GMAIL_APP_PASSWORD
 
   if (!gmailUser || !gmailPass) {
-    console.warn(
-      "[contact] GMAIL_USER / GMAIL_APP_PASSWORD not set. Submission stored in DB only."
-    )
-    if (submission) {
-      try {
-        await db.submission.update({
-          where: { id: submission.id },
-          data: {
-            delivered: "failed",
-            error: "SMTP credentials not configured on server.",
-          },
-        })
-      } catch {}
-    }
     return NextResponse.json(
       {
-        ok: true,
+        ok: false,
         delivered: false,
-        id: submission?.id,
-        note: "Saved to the database. SMTP not yet configured by the site owner.",
+        error:
+          "The contact form has not been fully configured yet. Please email profstephenbookclub@gmail.com directly while we finish setup.",
       },
-      { status: 200 }
+      { status: 503 }
     )
   }
 
@@ -129,7 +89,6 @@ export async function POST(req: Request) {
     message,
     ``,
     `Submitted:   ${new Date().toISOString()}`,
-    `IP:          ${ip || "unknown"}`,
   ].join("\n")
 
   const html = `
@@ -164,7 +123,7 @@ export async function POST(req: Request) {
 
   try {
     const info = await transporter.sendMail({
-      from: `"STEVEREADERCLUB contact\" <${gmailUser}>`,
+      from: `"STEVEREADERCLUB contact" <${gmailUser}>`,
       to: RECIPIENT,
       replyTo: email,
       subject,
@@ -172,20 +131,10 @@ export async function POST(req: Request) {
       html,
     })
 
-    if (submission) {
-      try {
-        await db.submission.update({
-          where: { id: submission.id },
-          data: { delivered: "sent", error: null },
-        })
-      } catch {}
-    }
-
     return NextResponse.json(
       {
         ok: true,
         delivered: true,
-        id: submission?.id,
         messageId: info.messageId,
       },
       { status: 200 }
@@ -194,23 +143,13 @@ export async function POST(req: Request) {
     const errorMsg = err instanceof Error ? err.message : String(err)
     console.error("[contact] SMTP send failed:", errorMsg)
 
-    if (submission) {
-      try {
-        await db.submission.update({
-          where: { id: submission.id },
-          data: { delivered: "failed", error: errorMsg.slice(0, 500) },
-        })
-      } catch {}
-    }
-
     return NextResponse.json(
       {
-        ok: true,
+        ok: false,
         delivered: false,
-        id: submission?.id,
-        error: "Stored, but email delivery failed. Please check SMTP settings.",
+        error: "Email delivery failed. Please email profstephenbookclub@gmail.com directly.",
       },
-      { status: 200 }
+      { status: 502 }
     )
   }
 }
