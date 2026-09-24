@@ -8,6 +8,10 @@ node_modules/
 out/
 build/
 dist/
+.open-next/
+
+# wrangler local state
+.wrangler/
 
 # production
 *.tsbuildinfo
