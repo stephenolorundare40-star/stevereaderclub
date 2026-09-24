@@ -1,0 +1,70 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+dist/
+
+# production
+*.tsbuildinfo
+next-env.d.ts
+
+# env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# logs
+*.log
+dev.log
+server.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# database
+*.db
+*.db-journal
+db/
+prisma/migrations/dev.db*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# OS
+Thumbs.db
+
+# uploaded user files (do not ship to repo)
+upload/
+!upload/.gitkeep
+
+# generated reference data not needed in the repo
+croissants_content.json
+croissants_text.txt
+img-*.json
+
+# sandbox dev artifacts
+.zscripts/
+.agent-browser/
+
+# dev skill docs (not needed in production)
+skills/
+
+# screenshots / dev artifacts (not needed in production)
+download/
+tests/
+
+# keep the upload folder empty
+upload/*
+!upload/.gitkeep
