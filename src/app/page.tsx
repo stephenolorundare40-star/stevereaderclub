@@ -292,7 +292,7 @@ function Committee() {
             >
               <Image
                 src="/brand/prof-stephen.png"
-                alt="Prof Stephen, Selection Committee Chair, at the reading desk"
+                alt="Reading glasses on a leather-bound book beside a brass lamp at the committee reading desk"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
