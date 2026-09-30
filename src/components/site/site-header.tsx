@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button"
 
 const NAV = [
   { href: "#manifesto", label: "Manifesto", n: "01" },
-  { href: "#spreads", label: "The Cycle", n: "02" },
-  { href: "#specimens", label: "Specimens", n: "03" },
-  { href: "#committee", label: "Committee", n: "04" },
-  { href: "#talks", label: "Talks", n: "05" },
-  { href: "#catalog", label: "Catalog", n: "06" },
-  { href: "#connect", label: "Contact", n: "07" },
+  { href: "#for-authors", label: "For Authors", n: "02" },
+  { href: "#spreads", label: "The Cycle", n: "03" },
+  { href: "#specimens", label: "Specimens", n: "04" },
+  { href: "#committee", label: "Committee", n: "05" },
+  { href: "#talks", label: "Talks", n: "06" },
+  { href: "#catalog", label: "Catalog", n: "07" },
+  { href: "#connect", label: "Contact", n: "08" },
 ]
 
 export function SiteHeader() {
@@ -82,7 +83,7 @@ export function SiteHeader() {
               className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-5"
             >
               <Link href="#connect">
-                Apply for the Cycle
+                Submit Your Book
                 <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
               </Link>
             </Button>
@@ -120,7 +121,7 @@ export function SiteHeader() {
               className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-11"
             >
               <Link href="#connect" onClick={() => setOpen(false)}>
-                Apply for the Cycle
+                Submit Your Book
                 <ArrowUpRight className="ml-1.5 h-4 w-4" />
               </Link>
             </Button>

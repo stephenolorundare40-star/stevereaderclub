@@ -99,12 +99,13 @@ export function HeroMono() {
         <div className="mt-8 md:mt-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-7">
             <p className="font-serif text-2xl md:text-3xl leading-snug text-primary text-balance">
-              Where intellectual curiosity meets companionable consideration.
+              Where independent authors find their legacy readers.
             </p>
             <p className="mt-5 text-base md:text-lg leading-relaxed text-foreground/70 max-w-xl text-pretty">
-              A managed reader experience chaired by Prof Stephen. We connect
-              independent authors with an elite global reading community for a
-              year-long journey of deep literary engagement.
+              A year-long managed residency chaired by Prof Stephen. Your
+              book gets the kind of slow, deep engagement that does not fade
+              after launch week — selected by reading, not algorithms, and
+              paid for by our private network, never by you.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -112,14 +113,14 @@ export function HeroMono() {
                 href="#connect"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-7 h-12 text-sm font-medium hover:bg-primary/90 transition-colors"
               >
-                Apply for the Cycle
+                Submit Your Book
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="#spreads"
+                href="#for-authors"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 text-primary px-7 h-12 text-sm font-medium hover:bg-primary/5 transition-colors"
               >
-                Read the Spreads
+                What Authors Get
               </Link>
             </div>
           </div>
@@ -129,8 +130,9 @@ export function HeroMono() {
               From the Chair
             </p>
             <blockquote className="mt-3 font-serif text-xl md:text-2xl italic leading-snug text-primary text-balance">
-              &ldquo;We treat literature not as a temporary commodity, but as a
-              permanent cultural contribution.&rdquo;
+              &ldquo;We treat your book not as a product, but as a record of
+              someone thinking. That posture changes the entire
+              conversation.&rdquo;
             </blockquote>
             <div className="mt-5 flex items-center gap-3">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-serif font-semibold">
@@ -151,10 +153,10 @@ export function HeroMono() {
         {/* Stats strip */}
         <div className="mt-12 md:mt-16 grid grid-cols-2 lg:grid-cols-4 border-t border-primary/15">
           {[
-            { v: "21,000+", l: "Global Hub Members" },
-            { v: "2,000+", l: "Active Salon Readers" },
-            { v: "150+", l: "Reviews per Selection" },
-            { v: "15", l: "Authors Per Annual Cycle" },
+            { v: "15", l: "Authors Selected Annually" },
+            { v: "12 mo", l: "Structured Engagement Per Cycle" },
+            { v: "150+", l: "Considered Reviews Per Title" },
+            { v: "0", l: "Author Fees, Ever" },
           ].map((s, i) => (
             <div
               key={s.l}

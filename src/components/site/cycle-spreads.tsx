@@ -120,7 +120,7 @@ export function CycleSpreads() {
         <div className="flex items-end justify-between border-b border-primary-foreground/20 pb-5 mb-10 md:mb-14">
           <div>
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
-              Section 02 · The Annual Cycle
+              Section 03 · The Annual Cycle
             </p>
             <h2 className="mt-2 font-serif text-3xl md:text-5xl font-semibold leading-[1.05] text-balance">
               Five spreads. One year-long residency.

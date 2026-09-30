@@ -71,7 +71,7 @@ export function Specimens() {
         <div className="flex items-end justify-between border-b border-primary/15 pb-5 mb-10 md:mb-14">
           <div>
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
-              Section 03 · Reading Specimens
+              Section 04 · Reading Specimens
             </p>
             <h2 className="mt-2 font-serif text-3xl md:text-5xl font-semibold leading-[1.05] text-primary text-balance">
               Drag the cards. Pinch to resize.

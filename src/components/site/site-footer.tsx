@@ -52,6 +52,7 @@ export function SiteFooter() {
             <ul className="mt-4 grid grid-cols-2 gap-y-2.5 gap-x-4">
               {[
                 { href: "#manifesto", label: "Manifesto" },
+                { href: "#for-authors", label: "For Authors" },
                 { href: "#spreads", label: "The Cycle" },
                 { href: "#specimens", label: "Specimens" },
                 { href: "#committee", label: "Committee" },

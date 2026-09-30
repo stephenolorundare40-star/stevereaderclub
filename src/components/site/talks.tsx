@@ -73,7 +73,7 @@ export function Talks() {
         <div className="flex items-end justify-between border-b border-primary/15 pb-5 mb-10 md:mb-14">
           <div>
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
-              Section 05 · Lectures & Talks
+              Section 06 · Lectures & Talks
             </p>
             <h2 className="mt-2 font-serif text-3xl md:text-5xl font-semibold leading-[1.05] text-primary text-balance">
               Recorded sessions, played in place.

@@ -12,6 +12,9 @@ import {
   Award,
   Quote,
   Shield,
+  Clock,
+  Mail,
+  Sparkles,
 } from "lucide-react"
 import { CursorTrail } from "@/components/site/cursor-trail"
 import { SiteHeader } from "@/components/site/site-header"
@@ -32,6 +35,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroMono />
         <Manifesto />
+        <ForAuthors />
         <CycleSpreads />
         <Engagement />
         <Specimens />
@@ -78,13 +82,14 @@ function Manifesto() {
             className="lg:col-span-9"
           >
             <p className="font-serif text-2xl md:text-3xl lg:text-[2.4rem] leading-[1.25] tracking-tight text-primary text-balance">
-              STEVEREADERCLUB bridges literature, human progress, and
-              community. We scout independent works that deserve a legacy
-              spotlight, and we introduce those authors to a network of
-              deeply engaged thinkers.
+              STEVEREADERCLUB exists for the independent author whose work
+              deserves more than a launch week. We scout exceptional,
+              independently published books and pair each one with an elite
+              reading community that finishes, annotates, and argues over
+              every page.
             </p>
             <p className="mt-7 max-w-2xl text-base md:text-lg leading-relaxed text-foreground/70 text-pretty">
-              We treat literature not as a temporary commodity, but as a
+              We treat your book not as a temporary commodity, but as a
               permanent cultural contribution. The work of this society is
               to make sure a small number of carefully chosen books are read
               the way they were written — slowly, with company, and with
@@ -137,6 +142,126 @@ function Manifesto() {
               })}
             </div>
           </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ============================================================ *
+ * For Authors — six explicit author benefits
+ * ============================================================ */
+function ForAuthors() {
+  const reduce = useReducedMotion()
+  const benefits = [
+    {
+      icon: Compass,
+      title: "Selection by reading, not algorithms",
+      body:
+        "The committee reads every submission in full. Selection is based on literary merit and narrative craft — not commercial positioning, marketing budgets, or trending categories.",
+    },
+    {
+      icon: Clock,
+      title: "A twelve-month residency, not a one-off review",
+      body:
+        "Once your book is selected, it enters a structured year-long engagement: guided reading notes, live salon discussions, and author Q&A sessions across the cycle.",
+    },
+    {
+      icon: Award,
+      title: "One hundred and fifty considered reviews",
+      body:
+        "Our readers finish, annotate, and write about your work. That engagement translates into a benchmark of 150+ high-quality review clusters on major reading platforms — naturally, not coordinated.",
+    },
+    {
+      icon: Library,
+      title: "Permanent recognition",
+      body:
+        "Long after the cycle closes, your book carries a body of analytical commentary that does not fade. It becomes a reference work within our hub and beyond.",
+    },
+    {
+      icon: Shield,
+      title: "Zero author fees, ever",
+      body:
+        "Independent funding through our private network. You never pay for selection, reviews, or placement. Not in seven years. Not ever. We are not a pay-to-play marketing service.",
+    },
+    {
+      icon: Mail,
+      title: "Direct line to the chair",
+      body:
+        "Prof Stephen reads every submission personally and replies within four weeks. No autoresponder, no slush pile, no junior reviewer triage. You talk to the person who decides.",
+    },
+  ]
+  return (
+    <section
+      id="for-authors"
+      className="py-20 md:py-28 bg-secondary/40 border-y border-primary/10"
+    >
+      <div className="container-px mx-auto max-w-[1400px]">
+        <div className="flex items-end justify-between border-b border-primary/15 pb-5 mb-10 md:mb-14">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
+              Section 02 · For Authors
+            </p>
+            <h2 className="mt-2 font-serif text-3xl md:text-5xl font-semibold leading-[1.05] text-primary text-balance">
+              What you get when your book is selected.
+            </h2>
+          </div>
+          <p className="hidden md:block text-[11px] uppercase tracking-[0.25em] text-foreground/55 font-medium">
+            Six commitments
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {benefits.map((b, i) => {
+            const Icon = b.icon
+            return (
+              <motion.article
+                key={b.title}
+                initial={{ opacity: 0, y: reduce ? 0 : 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: reduce ? 0 : 0.5,
+                  delay: reduce ? 0 : Math.min(i * 0.08, 0.4),
+                  ease: [0.22, 1, 0.36, 1] as const,
+                }}
+                className="group relative rounded-sm border border-primary/15 bg-card p-6 md:p-7 hover:border-primary/35 hover:shadow-[0_18px_40px_-24px_rgba(27,58,42,0.25)] transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-sm bg-primary/8 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground/45 font-medium">
+                    {String(i + 1).padStart(2, "0")} / 06
+                  </span>
+                </div>
+                <h3 className="mt-5 font-serif text-xl md:text-2xl font-semibold text-primary leading-tight text-balance">
+                  {b.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-foreground/70">
+                  {b.body}
+                </p>
+              </motion.article>
+            )
+          })}
+        </div>
+
+        <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-sm border border-primary/15 bg-card p-6 md:p-7">
+          <div className="flex items-start gap-3">
+            <Sparkles className="h-5 w-5 text-accent mt-0.5 flex-none" />
+            <p className="text-sm md:text-base text-foreground/75 leading-relaxed">
+              <span className="font-semibold text-primary">Fifteen slots.</span>{" "}
+              One annual cycle. Capped to protect the depth of engagement we
+              promise each selected author. Submissions are open now.
+            </p>
+          </div>
+          <Link
+            href="#connect"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-6 h-11 text-sm font-medium hover:bg-primary/90 transition-colors flex-none"
+          >
+            Submit your book
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -252,7 +377,7 @@ function Committee() {
             className="lg:col-span-5"
           >
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
-              Section 04 · The Selection Committee
+              Section 05 · The Selection Committee
             </p>
             <h2 className="mt-3 font-serif text-3xl md:text-5xl font-semibold leading-[1.05] text-primary text-balance">
               A small committee that reads the way good editors used to read.
@@ -376,15 +501,15 @@ function Voices() {
     },
     {
       quote:
-        "In a sea of surface-level internet commentary, this salon is a sanctuary. The discussions are consistently high-signal, challenging, and deeply rewarding. I have read more carefully this year than I have in a decade.",
-      author: "Core Salon Member",
-      role: "Reader, Lagos Hub",
-    },
-    {
-      quote:
         "Prof Stephen and the committee read the way good editors used to read. They understand that a book is not a product, it is a record of someone thinking. That posture changes the entire conversation.",
       author: "Residency Alumnus",
       role: "Independent Author",
+    },
+    {
+      quote:
+        "In a sea of surface-level internet commentary, this salon is a sanctuary. The discussions are consistently high-signal, challenging, and deeply rewarding. I have read more carefully this year than I have in a decade.",
+      author: "Core Salon Member",
+      role: "Reader, Lagos Hub",
     },
   ]
   return (
@@ -577,7 +702,7 @@ function Connect() {
             className="lg:col-span-5"
           >
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
-              Section 07 · Connect
+              Section 08 · Connect
             </p>
             <h2 className="mt-3 font-serif text-3xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-primary-foreground text-balance">
               Fifteen authors per cycle. Considered one at a time.

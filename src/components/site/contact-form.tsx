@@ -163,7 +163,7 @@ export function ContactForm() {
             </>
           ) : (
             <>
-              Submit to the committee
+              Submit your book
               <ArrowRight className="ml-2 h-4 w-4" />
             </>
           )}
