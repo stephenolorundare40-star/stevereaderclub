@@ -22,7 +22,6 @@ import { HeroMono } from "@/components/site/hero-mono"
 import { CycleSpreads } from "@/components/site/cycle-spreads"
 import { Specimens } from "@/components/site/specimens"
 import { PaletteStrip } from "@/components/site/palette-strip"
-import { Talks as TalksSection } from "@/components/site/talks"
 import { BookSearch } from "@/components/site/book-search"
 import { ContactForm } from "@/components/site/contact-form"
 import { SiteFooter } from "@/components/site/site-footer"
@@ -42,7 +41,6 @@ export default function Home() {
         <PaletteStrip />
         <Committee />
         <Voices />
-        <TalksSection />
         <Founding />
         <BookSearch />
         <Connect />
@@ -509,7 +507,7 @@ function Voices() {
       quote:
         "In a sea of surface-level internet commentary, this salon is a sanctuary. The discussions are consistently high-signal, challenging, and deeply rewarding. I have read more carefully this year than I have in a decade.",
       author: "Core Salon Member",
-      role: "Reader, Lagos Hub",
+      role: "Reader, Core Salon",
     },
   ]
   return (
@@ -571,13 +569,13 @@ function Founding() {
       year: "2018",
       title: "The First Salon",
       body:
-        "Prof Stephen convenes the first reading circle in a borrowed office above a Lagos bookshop. Twelve readers. One book. The shape of the annual cycle is set on a single handwritten page.",
+        "Prof Stephen convenes the first reading circle in a borrowed office above an independent bookshop. Twelve readers. One book. The shape of the annual cycle is set on a single handwritten page.",
     },
     {
       year: "2020",
       title: "The Hub Goes Global",
       body:
-        "The private channel opens to readers outside Lagos for the first time. The first Residency Alumnus publishes under the cycle banner. The review velocity benchmark emerges organically, not as a goal.",
+        "The private channel opens to readers outside the founding city for the first time. The first Residency Alumnus publishes under the cycle banner. The review velocity benchmark emerges organically, not as a goal.",
     },
     {
       year: "2022",
@@ -626,7 +624,7 @@ function Founding() {
                 2018
               </p>
               <p className="mt-3 text-sm text-foreground/65 leading-relaxed">
-                Above a bookshop in Lagos, with twelve readers and a single
+                Above an independent bookshop, with twelve readers and a single
                 handwritten page of rules.
               </p>
               <div className="mt-6 pt-5 border-t border-primary/15">
@@ -702,7 +700,7 @@ function Connect() {
             className="lg:col-span-5"
           >
             <p className="text-[11px] uppercase tracking-[0.25em] text-accent font-medium">
-              Section 08 · Connect
+              Section 07 · Connect
             </p>
             <h2 className="mt-3 font-serif text-3xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-primary-foreground text-balance">
               Fifteen authors per cycle. Considered one at a time.

@@ -12,9 +12,8 @@ const NAV = [
   { href: "#spreads", label: "The Cycle", n: "03" },
   { href: "#specimens", label: "Specimens", n: "04" },
   { href: "#committee", label: "Committee", n: "05" },
-  { href: "#talks", label: "Talks", n: "06" },
-  { href: "#catalog", label: "Catalog", n: "07" },
-  { href: "#connect", label: "Contact", n: "08" },
+  { href: "#catalog", label: "Catalog", n: "06" },
+  { href: "#connect", label: "Contact", n: "07" },
 ]
 
 export function SiteHeader() {

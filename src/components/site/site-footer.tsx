@@ -56,7 +56,6 @@ export function SiteFooter() {
                 { href: "#spreads", label: "The Cycle" },
                 { href: "#specimens", label: "Specimens" },
                 { href: "#committee", label: "Committee" },
-                { href: "#talks", label: "Talks" },
                 { href: "#catalog", label: "Catalog" },
                 { href: "#connect", label: "Contact" },
               ].map((link) => (

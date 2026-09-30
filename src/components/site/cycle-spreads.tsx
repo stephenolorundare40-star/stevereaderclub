@@ -26,7 +26,7 @@ const SPREADS: Spread[] = [
       "Fifteen books. One year. No commercial pressure, no pay-to-play, no shortcuts.",
     image:
       "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/997b0586cc63.jpg",
-    caption: "Committee reading room · Lagos Hub",
+    caption: "Committee reading room · The Hub",
   },
   {
     n: "02",

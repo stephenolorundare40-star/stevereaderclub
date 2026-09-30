@@ -32,7 +32,7 @@ const SPECIMENS: Specimen[] = [
     type: "Specimen No. 2",
     body:
       "Our salons begin with two minutes of silence. Not ceremony. Practical silence. The reader arrives carrying the noise of the day. Two minutes is enough for that noise to settle. What is said afterwards is said more carefully because of it.",
-    source: "Salon Etiquette · Lagos Hub",
+    source: "Salon Etiquette · The Hub",
     baseSize: 18,
   },
   {
